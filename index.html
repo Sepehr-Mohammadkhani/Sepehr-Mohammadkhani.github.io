@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sepehr Mohammadkhani</title>
+<meta name="description" content="Sepehr Mohammadkhani — PhD candidate in Mathematics at the University of Maryland. PDE analysis and fluid dynamics.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: two columns like the GitHub Pages "Minimal" theme — a sticky identity column on the left, a single reading column on the right; stacks on phones. */
+:root {
+  --bg: #fbfbfa;
+  --surface: #f1f3f5;
+  --fg: #23272b;
+  --muted: #5d6670;
+  --rule: #dfe3e7;
+  --accent: #1f5f8b;
+  --font-display: "Literata", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15181b; --surface: #1d2125; --fg: #e3e6e9; --muted: #9aa4ad; --rule: #2c3237; --accent: #7fb6dd;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15181b; --surface: #1d2125; --fg: #e3e6e9; --muted: #9aa4ad; --rule: #2c3237; --accent: #7fb6dd;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+.wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  padding-block: 56px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 56px;
+}
+
+/* Identity column */
+header.id { position: sticky; top: 40px; align-self: start; display: grid; gap: 18px; }
+.portrait {
+  width: 150px; aspect-ratio: 1; max-width: 100%;
+  border-radius: 6px; background: var(--surface); border: 1px solid var(--rule);
+  display: grid; place-items: center; overflow: hidden;
+  font-family: var(--font-display); font-size: 44px; color: var(--muted);
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+header.id h1 {
+  font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 1.2;
+  margin: 0; text-wrap: balance;
+}
+.role { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.45; }
+.contact { display: grid; gap: 6px; font-size: 15px; }
+.contact .k { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.mono { font-family: var(--font-mono); font-size: 13.5px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.links a {
+  font-size: 14px; padding: 4px 11px; border: 1px solid var(--rule); border-radius: 4px; color: var(--fg);
+}
+.links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+/* Reading column */
+main { min-width: 0; display: grid; gap: 40px; }
+section { display: grid; gap: 14px; }
+h2 {
+  font-family: var(--font-display); font-weight: 500; font-size: 22px; margin: 0;
+  padding-bottom: 6px; border-bottom: 1px solid var(--rule);
+}
+p { margin: 0; max-width: 68ch; }
+.lead { font-size: 18px; }
+
+ol.pubs, ul.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+ol.pubs { counter-reset: pub; }
+ol.pubs li { counter-increment: pub; display: grid; grid-template-columns: 2.2em minmax(0,1fr); }
+ol.pubs li::before { content: "[" counter(pub) "]"; color: var(--muted); font-variant-numeric: tabular-nums; font-size: 15px; padding-top: 1px; }
+.ptitle { font-weight: 600; display: block; }
+.authors, .venue { display: block; color: var(--muted); font-size: 15.5px; }
+.venue em { font-style: italic; }
+.plinks { font-size: 15px; display: flex; gap: 12px; flex-wrap: wrap; margin-top: 2px; }
+.status {
+  font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+  border: 1px solid var(--rule); border-radius: 3px; padding: 0 6px; margin-left: 6px; white-space: nowrap;
+}
+
+.rows { display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: 8.5em minmax(0,1fr); gap: 16px; }
+.row .when { color: var(--muted); font-size: 15px; font-variant-numeric: tabular-nums; }
+.row .what span { display: block; color: var(--muted); font-size: 15.5px; }
+
+footer { color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule); padding-top: 14px; }
+
+@media (max-width: 760px) {
+  .wrapper { grid-template-columns: minmax(0,1fr); gap: 36px; padding-block: 32px 40px; }
+  header.id { position: static; grid-template-columns: 96px minmax(0,1fr); align-items: center; column-gap: 18px; }
+  .portrait { width: 96px; font-size: 30px; }
+  header.id .contact, header.id .links { grid-column: 1 / -1; }
+  .row { grid-template-columns: minmax(0,1fr); gap: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <header class="id">
+    <div class="portrait" id="portrait">
+      <img src="assets/profile.jpg" alt="Sepehr Mohammadkhani" onerror="this.remove();document.getElementById('portrait').textContent='SM'">
+    </div>
+    <div>
+      <h1>Sepehr Mohammadkhani</h1>
+      <p class="role">PhD Candidate in Mathematics<br>University of Maryland, College Park</p>
+    </div>
+    <div class="contact">
+      <div><div class="k">Email</div><span class="mono">seperman [at] umd [dot] edu</span></div>
+      <div><div class="k">Advisor</div><a href="https://terpconnect.umd.edu/~hnguye90/">Huy Q. Nguyen</a></div>
+      <div><div class="k">Department</div>Department of Mathematics<br>Kirwan Hall, Office 2117</div>
+    </div>
+    <nav class="links" aria-label="Profiles">
+      <a href="assets/cv.pdf">CV</a>
+      <a href="https://arxiv.org/search/?query=Mohammadkhani%2C+Sepehr&searchtype=all&abstracts=show&order=-announced_date_first&size=50">arXiv</a>
+      <a href="https://scholar.google.com/citations?user=_oQ7AkEAAAAJ&hl=en">Google Scholar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p class="lead">I am a fifth-year PhD candidate in the Department of Mathematics at the University of Maryland, College Park, advised by Huy Q. Nguyen.</p>
+      <p>I work on the mathematical analysis of partial differential equations arising from fluid dynamics, with a focus on stability and long-time behavior. If a steady state is perturbed, does the solution converge to a steady state, possibly a different one? In which topology? And when does convergence fail? So far I have studied these questions for <strong>Moffatt's magnetic relaxation equation</strong> and the <strong>incompressible porous medium (IPM) equation</strong>.</p>
+      <p>Before coming to Maryland, I received a B.Sc. in Computer Science with a minor in Mathematics from Sharif University of Technology (2022).</p>
+    </section>
+
+    <section id="papers">
+      <h2>Preprints &amp; Publications</h2>
+      <ol class="pubs">
+        <li><div>
+          <span class="ptitle">Sharp stability and instability of stratified steady states for the incompressible porous media equation</span>
+          <span class="authors">Abdolhamid Banihashemi, Sepehr Mohammadkhani, Huy Q. Nguyen</span>
+          <span class="venue">Submitted (2026)</span>
+          <span class="plinks"><a href="https://arxiv.org/abs/2609.37397">arXiv:2609.37397</a></span>
+        </div></li>
+        <li><div>
+          <span class="ptitle">On Moffatt's magnetic relaxation for 2D and 2.5D flows</span>
+          <span class="authors">Sepehr Mohammadkhani, Huy Q. Nguyen</span>
+          <span class="venue">Under minor revision (2025)</span>
+          <span class="plinks"><a href="https://arxiv.org/abs/2511.15501">arXiv:2511.15501</a></span>
+        </div></li>
+      </ol>
+    </section>
+
+
+    <section id="talks">
+      <h2>Talks</h2>
+      <div class="rows">
+        <div class="row"><div class="when">Apr 2026</div><div class="what">On Moffatt's magnetic relaxation for 2D and 2.5D flows<span>Current Trends in Fluid Dynamics, Brin Center, College Park</span></div></div>
+        <div class="row"><div class="when">Jan 2026</div><div class="what">On Moffatt's magnetic relaxation for 2D and 2.5D flows<span>Special Session on Stability and Instability in Nonlinear Evolution Equations, JMM, Washington, D.C.</span></div></div>
+        <div class="row"><div class="when">Nov 2025</div><div class="what">Sharp stability of the 2D IPM equation<span>RIT on Applied PDE, University of Maryland</span></div></div>
+        <div class="row"><div class="when">Apr 2025</div><div class="what">Grenier's iterative scheme for nonlinear instability<span>RIT on Applied PDE, University of Maryland</span></div></div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <div class="rows">
+        <div class="row"><div class="when">Summer 2023, 2024</div><div class="what">Instructor, Calculus III<span>Designed the syllabus, taught lectures, wrote the exams</span></div></div>
+        <div class="row"><div class="when">2022 – present</div><div class="what">Teaching Assistant, University of Maryland<span>Discussion sections: College Algebra, Calculus III, ODEs. Grader: Intro to Probability, Intro to Topology, Intro to Analysis</span></div></div>
+      </div>
+    </section>
+
+    <section id="honors">
+      <h2>Honors</h2>
+      <div class="rows">
+        <div class="row"><div class="when">2025, 2026</div><div class="what">Hauptman Fellowship</div></div>
+      </div>
+    </section>
+
+    <footer>Last updated: November 2026</footer>
+  </main>
+</div>
+</body>
+</html>
